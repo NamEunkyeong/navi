@@ -1,0 +1,9 @@
+streamlit>=1.40
+pandas>=2.0
+numpy
+plotly
+openpyxl
+python-dotenv
+pyarrow
+matplotlib
+markdown

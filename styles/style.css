@@ -1,0 +1,296 @@
+/* ═══════════════════════════════════════════════════════════════
+   styles/style.css  –  VNB Dashboard 전역 스타일 (Pro Edition)
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+    /* Primary – Deep Blue */
+    --P0: #003652; --P1: #154865; --P2: #226857; --P3: #3185A9;
+    --P4: #47A3CB; --P5: #61C2E5; --P6: #8AD9F5; --P7: #A8E7FF;
+    --P8: #CBF1FF; --P9: #EFFBFF;
+    /* Secondary – Teal */
+    --S0: #01444C; --S1: #1D5D5B; --S2: #2D8683; --S3: #3EA9A6;
+    --S4: #4EBDB9; --S5: #64D1CE; --S6: #96E3E1; --S7: #B9EFED;
+    --S8: #D1FAF9; --S9: #F1FFFE;
+    /* Third – Green/Mint */
+    --T0: #265B38; --T1: #327147; --T2: #469661; --T3: #50AF70;
+    --T4: #5EC982; --T5: #68DF8F; --T6: #8FF5B1; --T7: #B3FFCC;
+    --T8: #D3FFE2; --T9: #F4FFF8;
+    /* Support – Warm Gray */
+    --N0: #3E3D35; --N1: #4E4A46; --N2: #67625B; --N3: #7C766E;
+    --N4: #9C978F; --N5: #C4BEB5; --N6: #DDDBD5; --N7: #EAE7E1;
+    --N8: #F5F2ED; --N9: #FBFAF8;
+
+    --C_DEEP_BLUE:  var(--P0);
+    --C_LIGHT_BLUE: var(--P8);
+    --C_MINT:       var(--T6);
+    --C_BEIGE:      var(--N8);
+    --C_WHITE:      #FFFFFF;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 54, 82, 0.04), 0 1px 3px rgba(0, 54, 82, 0.06);
+    --shadow-md: 0 2px 4px rgba(0, 54, 82, 0.06), 0 4px 8px rgba(0, 54, 82, 0.08);
+    --shadow-lg: 0 4px 8px rgba(0, 54, 82, 0.08), 0 8px 16px rgba(0, 54, 82, 0.10);
+}
+
+/* ── Global ──────────────────────────────────────────────────── */
+[data-testid="stAppViewContainer"] {
+    background-color: var(--N9);
+}
+[data-testid="stMain"] .block-container {
+    padding-top: 1.2rem;
+    padding-bottom: 3rem;
+    max-width: 1500px;
+}
+h1, h2, h3 { color: var(--P0); font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+h1 { font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-weight: 600; }
+.stMarkdown, p { color: var(--N1); font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+
+/* ── Top Header ──────────────────────────────────────────────── */
+.top-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 24px; margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--P0) 0%, var(--P1) 100%);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    color: var(--C_WHITE);
+}
+.top-header-title {
+    color: var(--C_WHITE) !important;
+    margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.01em;
+}
+.top-header-subtitle {
+    color: var(--P8) !important;
+    margin: 4px 0 0 0; font-size: 13px; font-weight: 400;
+}
+.top-header-right { display: flex; gap: 8px; }
+.badge {
+    display: inline-block; padding: 6px 14px; border-radius: 16px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
+}
+.badge-period   { background: var(--T6); color: var(--T0); }
+.badge-currency { background: var(--P8); color: var(--P0); }
+
+/* ── KPI Cards ───────────────────────────────────────────────── */
+.kpi-card {
+    background: var(--C_WHITE);
+    border: 1px solid var(--N7);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    min-height: 110px;
+}
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.kpi-label {
+    font-size: 12px; color: var(--N3); font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+}
+.kpi-value {
+    font-size: 24px; color: var(--P0); font-weight: 700;
+    letter-spacing: -0.01em; line-height: 1.2;
+}
+.kpi-delta {
+    margin-top: 6px; font-size: 12px; font-weight: 500;
+}
+.kpi-delta-positive { color: var(--T1); }
+.kpi-delta-negative { color: var(--P3); }
+.kpi-delta-neutral  { color: var(--N3); }
+
+/* ── DataFrame 표 호버 ───────────────────────────────────────── */
+[data-testid="stDataFrame"] {
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+/* ── Tabs ────────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 4px;
+    background-color: var(--N8);
+    padding: 4px;
+    border-radius: 10px;
+}
+.stTabs [data-baseweb="tab"] {
+    padding: 8px 18px;
+    border-radius: 6px;
+    color: var(--N2);
+    font-weight: 500;
+    background: transparent;
+}
+.stTabs [aria-selected="true"] {
+    background: var(--C_WHITE) !important;
+    color: var(--P0) !important;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.stButton > button,
+.stDownloadButton > button {
+    background: var(--P0) !important;
+    color: var(--C_WHITE) !important;
+    border: none !important;
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 8px 18px;
+    transition: all 0.15s ease;
+    box-shadow: var(--shadow-sm);
+}
+/* Streamlit이 내부 p/span 으로 글씨를 래핑할 때도 흰색 강제 */
+.stButton > button p,
+.stButton > button span,
+.stDownloadButton > button p,
+.stDownloadButton > button span {
+    color: var(--C_WHITE) !important;
+}
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+    background: var(--P1) !important;
+    color: var(--C_WHITE) !important;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+/* ── Selectbox / inputs ──────────────────────────────────────── */
+.stSelectbox label, .stNumberInput label, .stRadio label {
+    color: var(--N1); font-weight: 500; font-size: 13px;
+}
+
+/* ── Divider ─────────────────────────────────────────────────── */
+hr {
+    margin: 1.8rem 0 1.2rem 0 !important;
+    border-color: var(--N7) !important;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, var(--P0) 0%, var(--P1) 100%);
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] .stMarkdown,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] label {
+    color: var(--C_WHITE) !important;
+}
+[data-testid="stSidebar"] h2 {
+    font-size: 14px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--P8) !important;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+/* sidebar: 드롭다운은 흰 글씨 유지 */
+[data-testid="stSidebar"] [data-baseweb="select"] > div {
+    background-color: rgba(255,255,255,0.08) !important;
+    color: var(--C_WHITE) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+}
+/* sidebar: number_input 등 텍스트 입력창은 흰 배경 + 남색 글씨 */
+[data-testid="stSidebar"] input[type="number"],
+[data-testid="stSidebar"] input[type="text"] {
+    background-color: rgba(255,255,255,0.92) !important;
+    color: var(--P0) !important;
+    border-color: rgba(255,255,255,0.4) !important;
+    border-radius: 6px;
+}
+
+/* sidebar collapse / 모든 SVG 흰색 */
+[data-testid="stSidebarCollapseButton"] svg,
+[data-testid="collapsedControl"] svg,
+[data-testid="stSidebar"] button svg,
+[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"] svg {
+    color: var(--C_WHITE) !important;
+    fill:  var(--C_WHITE) !important;
+}
+button[kind="header"] {
+    background-color: var(--C_DEEP_BLUE) !important;
+    color: var(--C_WHITE) !important;
+    border-radius: 50%;
+}
+
+/* sidebar 로고 영역 */
+.sidebar-logo {
+    padding: 8px 4px 18px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 16px;
+}
+.sidebar-logo h2 {
+    color: var(--C_WHITE) !important;
+    margin: 0 !important;
+    font-size: 18px !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+}
+.sidebar-logo p {
+    color: var(--P8) !important;
+    margin: 4px 0 0 0;
+    font-size: 11px;
+}
+
+/* ── Expander ────────────────────────────────────────────────── */
+[data-testid="stExpander"] {
+    border: 1px solid var(--N7);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+[data-testid="stExpander"] summary {
+    font-weight: 500;
+    color: var(--P0);
+}
+
+/* ── Metric (st.metric) ──────────────────────────────────────── */
+[data-testid="stMetric"] {
+    background: var(--C_WHITE);
+    border: 1px solid var(--N7);
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.footer {
+    margin-top: 3rem;
+    padding: 16px 0;
+    border-top: 1px solid var(--N7);
+    text-align: center;
+    color: var(--N3);
+    font-size: 12px;
+}
+.footer-sep { margin: 0 8px; color: var(--N5); }
+
+/* ── 표 헤더 가운데 정렬 ─────────────────────────────────────── */
+thead tr th,
+.stDataFrame thead tr th,
+[data-testid="stDataFrame"] thead th {
+    text-align: center !important;
+}
+/* MultiIndex 헤더도 포함 */
+.stDataFrame th {
+    text-align: center !important;
+}
+
+/* ── 캐시 초기화 버튼 (사이드바) ──────────────────────────────── */
+[data-testid="stSidebar"] div.stButton > button,
+[data-testid="stSidebar"] div.stButton > button:focus,
+[data-testid="stSidebar"] div.stButton > button:active,
+[data-testid="stSidebar"] div.stButton > button:visited {
+    background-color: #003652 !important;
+    color: #CBF1FF !important;
+    border: 1px solid rgba(255,255,255,0.35) !important;
+    box-shadow: none !important;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+[data-testid="stSidebar"] div.stButton > button:hover {
+    background-color: #154865 !important;
+    border-color: rgba(255,255,255,0.7) !important;
+    color: #ffffff !important;
+}
